@@ -1,0 +1,20 @@
+[
+  {"municipio" :  "Palma",
+  "numPlazas" :  100,
+  "direccion" :  "Carrer del Marquès de la Fontsanta, 52",
+  "horario" : "08:00-22:00",
+  "precioHora" :  5,
+  "imagen" : "palma.png"},
+  {"municipio" :  "Alaró",
+    "numPlazas" :  180,
+    "direccion" :  "Plaça Clastra de son Togores, 30",
+    "horario" : "08:00-20:00",
+    "precioHora" :  3,
+    "imagen" : "alaro.png"},
+  {"municipio" :  "Inca",
+    "numPlazas" :  300,
+    "direccion" :  "Plaça Mare de Déu de Lluch",
+    "horario" : "06:00-23:00",
+    "precioHora" :  6,
+    "imagen" : "inca.png"}
+]
