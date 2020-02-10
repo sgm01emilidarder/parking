@@ -1,6 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="./common/header.jsp" %>
+<jsp:include page="common/header.jsp"/>
 
 
 <div class="row">
@@ -32,4 +32,4 @@
     <div class="col-3 shadow p-3 mb-5 bg-white rounded">Número de llocs disponibles:</div>
 </div>
 
-<%@include file="./common/footer.jsp" %>
+<jsp:include page="common/footer.jsp"/>
