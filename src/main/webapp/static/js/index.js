@@ -20,9 +20,9 @@ function printParkings(parkings) {
                         <p class="card-text text-center">${parking.direccion}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Horario: ${parking.horario}</li>
-                        <li class="list-group-item">Precio: ${parking.precio} €/hora</li>
-                        <li class="list-group-item">Tipo: ${parking.tipo}</li>
+                        <li class="list-group-item"><b>Horario:</b> ${parking.horario}</li>
+                        <li class="list-group-item"><b>Precio:</b> ${parking.precioHora} €/hora</li>
+                        <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
                         <button class="btn btn-primary">Comprar ticket</button>
