@@ -14,7 +14,7 @@
     "direccion": "Plaça Clastra de son Togores, 30",
     "horario": "08:00-20:00",
     "precioHora": 3,
-    "imagen": "alaro.png",
+    "imagen": "alaro.jpg",
     "tipo" : "tierra"
   },
   {
@@ -23,7 +23,7 @@
     "direccion": "Plaça Mare de Déu de Lluch",
     "horario": "06:00-23:00",
     "precioHora": 6,
-    "imagen": "inca.png",
+    "imagen": "inca.jpg",
     "tipo" : "asfaltado"
   }
 ]
