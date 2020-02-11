@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<jsp:include page="common/header.jsp"/>
+<%@include file="./common/header.jsp" %>
 
 
 <div class="row">
@@ -42,4 +42,4 @@
 </div>
 <a href="./registro.jsp">No tens compte?</a>
 
-<jsp:include page="common/footer.jsp"/>
+<%@include file="./common/footer.jsp" %>
