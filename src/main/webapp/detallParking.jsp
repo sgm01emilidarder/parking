@@ -39,8 +39,6 @@
     </div>
 
 
-
-
     <form class="d-flex justify-content-center col-5">
         <div class="form-group">
         <p class="text-center h3">Ticket</p>
@@ -66,6 +64,7 @@
                 </label>
             </div>
         </div>
+        <button type="submit" class="btn btn-primary d-flex align-items-end">Submit</button>
     </form>
 </div>
 <%@include file="./common/footer.jsp" %>
