@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
-<jsp:include page="common/header.jsp"/>
+<%@include file="./common/header.jsp" %>
 
 <div class="row">
     <nav class=" col-12 navbar navbar-expand-lg navbar-light bg-light">
@@ -56,4 +56,4 @@
     </form>
 </div>
 
-<jsp:include page="common/footer.jsp"/>
+<%@include file="./common/footer.jsp" %>

@@ -2,7 +2,6 @@
 
 <%@include file="./common/header.jsp" %>
 
-
 <div class="row">
     <nav class=" col-12 navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Parking Manager</a>
@@ -30,8 +29,35 @@
 <hr>
 
 
-<div class="row">
-    <div class="col-3 shadow p-3 mb-5 bg-white rounded">Número de llocs disponibles:</div>
+<div class="row media">
+    <img src="./img/palma.jpg" class="col-4 rounded" alt="...">
+    <div class="media-body">
+        <h5 class="mt-0">Nombreparking</h5>
+        <p>info</p>
+        <p>info</p>
+        <p>info</p>
+    </div>
 </div>
+
+    <p class="text-center h3">Ticket</p>
+
+<form class="d-flex justify-content-center">
+    <div class="form-group">
+        <label for="matricula">Matricula</label>
+        <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="electric" id="electric" value="option1">
+            <label class="form-check-label" for="electric">
+                Vehicle eléctric -10%
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="places" id="places" value="option2">
+            <label class="form-check-label" for="places">
+                Totes les plaçes ocupades -5%
+            </label>
+        </div>
+    </div>
+</form>
 
 <%@include file="./common/footer.jsp" %>
