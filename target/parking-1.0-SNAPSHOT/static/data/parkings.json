@@ -5,7 +5,8 @@
     "direccion": "Carrer del Marquès de la Fontsanta, 52",
     "horario": "08:00-22:00",
     "precioHora": 5,
-    "imagen": "palma.png"
+    "imagen": "palma.jpg",
+    "tipo" : "cubierto"
   },
   {
     "municipio": "Alaró",
@@ -13,7 +14,8 @@
     "direccion": "Plaça Clastra de son Togores, 30",
     "horario": "08:00-20:00",
     "precioHora": 3,
-    "imagen": "alaro.png"
+    "imagen": "alaro.png",
+    "tipo" : "tierra"
   },
   {
     "municipio": "Inca",
@@ -21,6 +23,7 @@
     "direccion": "Plaça Mare de Déu de Lluch",
     "horario": "06:00-23:00",
     "precioHora": 6,
-    "imagen": "inca.png"
+    "imagen": "inca.png",
+    "tipo" : "asfaltado"
   }
 ]
