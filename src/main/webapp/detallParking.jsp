@@ -39,10 +39,11 @@
     </div>
 
 
-    <p class="text-center h3">Ticket</p>
 
-    <form class="d-flex justify-content-center">
+
+    <form class="d-flex justify-content-center col-5">
         <div class="form-group">
+        <p class="text-center h3">Ticket</p>
             <label for="matricula">Matricula</label>
             <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
             <div class="form-check">
