@@ -1,0 +1,17 @@
+[
+  {"nombre" : "Tomeu",
+  "apellido" : "Riera",
+  "email" : "tm@gmail.com",
+  "usuario" : "TRiera",
+  "contraseña" : "12345678"},
+  {"nombre" : "Miquel",
+    "apellido" : "Montoro",
+    "email" : "mm@gmail.com",
+    "usuario" : "MMontoro",
+    "contraseña" : "12345678"},
+  {"nombre" : "Joan",
+    "apellido" : "Gomila",
+    "email" : "jg@gmail.com",
+    "usuario" : "JGomila",
+    "contraseña" : "12345678"}
+]
