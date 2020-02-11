@@ -37,33 +37,34 @@
         <p>info</p>
         <p>info</p>
     </div>
+
+
+    <p class="text-center h3">Ticket</p>
+
+    <form class="d-flex justify-content-center">
+        <div class="form-group">
+            <label for="matricula">Matricula</label>
+            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="descompte" id="nodescompte" value="nodescompte"
+                       checked>
+                <label class="form-check-label" for="nodescompte">
+                    Sense descompte aplicable
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="descompte" id="places" value="places">
+                <label class="form-check-label" for="places">
+                    Totes les plaçes ocupades -5%
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="descompte" id="electric" value="electric">
+                <label class="form-check-label" for="electric">
+                    Vehicle eléctric -10%
+                </label>
+            </div>
+        </div>
+    </form>
 </div>
-
-<p class="text-center h3">Ticket</p>
-
-<form class="d-flex justify-content-center">
-    <div class="form-group">
-        <label for="matricula">Matricula</label>
-        <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="descompte" id="nodescompte" value="nodescompte" checked>
-            <label class="form-check-label" for="nodescompte">
-                Sense descompte aplicable
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="descompte" id="places" value="places">
-            <label class="form-check-label" for="places">
-                Totes les plaçes ocupades -5%
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="descompte" id="electric" value="electric">
-            <label class="form-check-label" for="electric">
-                Vehicle eléctric -10%
-            </label>
-        </div>
-    </div>
-</form>
-
 <%@include file="./common/footer.jsp" %>
