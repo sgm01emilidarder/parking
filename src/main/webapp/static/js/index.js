@@ -72,6 +72,7 @@ function getUsers() {
         .then(data => {
             console.log(data);
             putUsersOnVariable(data);
+            loginController();
         })
 }
 
