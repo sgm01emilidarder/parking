@@ -58,6 +58,6 @@ function printParking(){
 }
 
 function cercar(nom) {
-    parkings = parkings.filter(e => e.municipio === nom);
-    printParkings(parkings);
+    let filtreParkings = parkings.filter(e => e.municipio === nom);
+    printParkings(filtreParkings);
 }
