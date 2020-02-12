@@ -58,6 +58,6 @@ function printParking(){
 }
 
 function cercar(nom) {
-    let filtreParkings = parkings.filter(e => e.municipio === nom);
+    let filtreParkings = parkings.filter(e => e.municipio.localeCompare(nom));
     printParkings(filtreParkings);
 }
