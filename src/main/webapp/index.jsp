@@ -21,9 +21,7 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0">
                 <a class="btn btn-outline-success my-2 my-sm-0" href="login.jsp" role="button">Log In</a>
-            </form>
         </div>
     </nav>
 </div>
