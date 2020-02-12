@@ -58,5 +58,5 @@ function printParking(){
 }
 
 function cercar(nom) {
-    parkings = parkings.filter(e => e.municipio === nom)
+    parkings = parkings.filter(e => e.municipio === nom);
 }

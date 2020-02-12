@@ -1,5 +1,6 @@
 let content = document.getElementById('cards');
 let parkings;
+let usuaris;
 
 function getParkings() {
     fetch('data/parkings.json')
@@ -8,19 +9,19 @@ function getParkings() {
             console.log(data);
             printParkings(data);
             putParkingsOnVariable(data);
-    })
+        })
 }
 
-function putParkingsOnVariable(data){
+function putParkingsOnVariable(data) {
     parkings = data;
 }
 
 function printParkings(parkings) {
     content.innerHTML = '';
-    for (let parking of parkings){
+    for (let parking of parkings) {
         content.innerHTML += `
                 <div class="card col-4" style="width: 18rem;">
-                    <img src="../img/${parking.imagen}" class="card-img-top imagen" alt="..." >
+                    <img src="../img/${parking.imagen}" class="imagen rounded mt-2" alt="..." >
                     <div class="card-body">
                         <h5 class="card-title text-center">${parking.municipio}</h5>
                         <p class="card-text text-center">${parking.direccion}</p>
@@ -38,11 +39,11 @@ function printParkings(parkings) {
     }
 }
 
-function getParkingById(id){
+function getParkingById(id) {
     localStorage.setItem("parking", JSON.stringify(parkings[id]));
 }
 
-function printParking(){
+function printParking() {
     let parking = JSON.parse(localStorage.getItem("parking"));
     let imgParking = document.getElementById('imgParking');
     imgParking.src = "../img/" + parking.imagen;
@@ -58,6 +59,34 @@ function printParking(){
 }
 
 function cercar(nom) {
-    let filtreParkings = parkings.filter(e => e.municipio.localeCompare(nom));
-    printParkings(filtreParkings);
+    if (nom !== "") {
+        let filtreParkings = parkings.filter(e => e.municipio === nom);
+        printParkings(filtreParkings);
+    } else{
+        getParkings();
+    }
+}
+function getUsers() {
+    fetch('data/usuarios.json')
+        .then(result => result.json())
+        .then(data => {
+            console.log(data);
+            putUsersOnVariable(data);
+        })
+}
+
+function putUsersOnVariable(users) {
+    usuaris = users;
+}
+
+function loginController() {
+    let content = document.getElementById('login');
+    let user = document.getElementById('user').value;
+    let pass = document.getElementById('pass').value;
+    let filteredUser = usuaris.filter(e => e.usuario === user && e.password === pass);
+    if (filteredUser.length){
+        content.innerHTML = `
+            <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login">${user}</button>
+        `
+    }
 }
