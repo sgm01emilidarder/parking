@@ -8,16 +8,16 @@ function getParkings() {
             console.log(data);
             printParkings(data);
             putParkingsOnVariable(data);
-    })
+        })
 }
 
-function putParkingsOnVariable(data){
+function putParkingsOnVariable(data) {
     parkings = data;
 }
 
 function printParkings(parkings) {
     content.innerHTML = '';
-    for (let parking of parkings){
+    for (let parking of parkings) {
         content.innerHTML += `
                 <div class="card col-4" style="width: 18rem;">
                     <img src="../img/${parking.imagen}" class="card-img-top imagen" alt="..." >
@@ -38,11 +38,11 @@ function printParkings(parkings) {
     }
 }
 
-function getParkingById(id){
+function getParkingById(id) {
     localStorage.setItem("parking", JSON.stringify(parkings[id]));
 }
 
-function printParking(){
+function printParking() {
     let parking = JSON.parse(localStorage.getItem("parking"));
     let imgParking = document.getElementById('imgParking');
     imgParking.src = "../img/" + parking.imagen;
@@ -58,6 +58,11 @@ function printParking(){
 }
 
 function cercar(nom) {
-    let filtreParkings = parkings.filter(e => e.municipio.localeCompare(nom));
+    let filtreParkings = parkings.filter(e => {
+        let municipi = e.municipio.toUpperCase();
+        let nom = nom.toUpperCase();
+        if (municipi *= nom) return municipi;
+    });
+
     printParkings(filtreParkings);
 }
