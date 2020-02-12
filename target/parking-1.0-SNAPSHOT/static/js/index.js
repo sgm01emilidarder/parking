@@ -1,4 +1,5 @@
 let content = document.getElementById('cards');
+let parkings;
 
 function getParkings() {
     fetch('data/parkings.json')
@@ -6,7 +7,12 @@ function getParkings() {
         .then(data => {
             console.log(data);
             printParkings(data);
+            putParkingsOnVariable(data);
     })
+}
+
+function putParkingsOnVariable(data){
+    parkings = data;
 }
 
 function printParkings(parkings) {
@@ -25,10 +31,14 @@ function printParkings(parkings) {
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
-                        <button class="btn btn-primary">Comprar ticket</button>
+                        <button class="btn btn-primary" href="detallParking.html" onclick="printParkingById(${parking.id})">Comprar ticket</button>
                     </div>
                 </div>
         `
     }
+}
+
+function printParkingById(id){
+
 }
 

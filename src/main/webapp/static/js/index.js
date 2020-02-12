@@ -1,4 +1,6 @@
 let content = document.getElementById('cards');
+let parkings;
+let parking;
 
 function getParkings() {
     fetch('data/parkings.json')
@@ -6,7 +8,12 @@ function getParkings() {
         .then(data => {
             console.log(data);
             printParkings(data);
+            putParkingsOnVariable(data);
     })
+}
+
+function putParkingsOnVariable(data){
+    parkings = data;
 }
 
 function printParkings(parkings) {
@@ -25,10 +32,30 @@ function printParkings(parkings) {
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
-                        <button class="btn btn-primary">Comprar ticket</button>
+                        <button class="btn btn-primary" onclick="getParkingById(${parking.id})">Comprar ticket</button>
                     </div>
                 </div>
         `
     }
 }
 
+function getParkingById(id){
+    parking = parkings[id];
+    window.location.replace("detallParking.html");
+
+    printParking();
+}
+
+function printParking(){
+    let imgParking = document.getElementById('imgParking');
+    imgParking.src = "../img/" + parking.imagen;
+
+    let infoParking = document.getElementById('infoParking');
+    infoParking.innerHTML = `
+       <h5 class="mt-0">${parking.municipio}</h5>
+        <p>Direccion: ${parking.direccion}</p>
+        <p>Plazas disponibles: ${parking.numPlazas}</p>
+        <p>Horario: ${parking.horario}</p>
+        <p>Precio: ${parking.precioHora}€/hora</p>
+    `;
+}

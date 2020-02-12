@@ -1,5 +1,6 @@
 [
   {
+    "id" : 0,
     "municipio": "Palma",
     "numPlazas": 100,
     "direccion": "Carrer del Marquès de la Fontsanta, 52",
@@ -9,6 +10,7 @@
     "tipo" : "cubierto"
   },
   {
+    "id" : 1,
     "municipio": "Alaró",
     "numPlazas": 180,
     "direccion": "Plaça Clastra de son Togores, 30",
@@ -18,6 +20,7 @@
     "tipo" : "tierra"
   },
   {
+    "id" : 2,
     "municipio": "Inca",
     "numPlazas": 300,
     "direccion": "Plaça Mare de Déu de Lluch",
