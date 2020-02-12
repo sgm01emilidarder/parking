@@ -64,7 +64,7 @@
                 </label>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary d-flex align-items-end">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
 <%@include file="./common/footer.jsp" %>
