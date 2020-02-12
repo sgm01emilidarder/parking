@@ -56,3 +56,8 @@ function printParking(){
         <p>Precio: ${parking.precioHora}€/hora</p>
     `;
 }
+
+function cercar(nom) {
+    parkings = parkings.filter(e => e.municipio === nom);
+    printParkings(parkings);
+}

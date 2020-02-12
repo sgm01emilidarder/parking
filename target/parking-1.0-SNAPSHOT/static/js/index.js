@@ -31,14 +31,28 @@ function printParkings(parkings) {
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
-                        <button class="btn btn-primary" href="detallParking.html" onclick="printParkingById(${parking.id})">Comprar ticket</button>
+                        <a class="btn btn-primary" onclick="getParkingById(${parking.id})" href="detallParking.html">Comprar ticket</a>
                     </div>
                 </div>
         `
     }
 }
 
-function printParkingById(id){
-
+function getParkingById(id){
+    localStorage.setItem("parking", JSON.stringify(parkings[id]));
 }
 
+function printParking(){
+    let parking = JSON.parse(localStorage.getItem("parking"));
+    let imgParking = document.getElementById('imgParking');
+    imgParking.src = "../img/" + parking.imagen;
+
+    let infoParking = document.getElementById('infoParking');
+    infoParking.innerHTML = `
+       <h5 class="mt-0">${parking.municipio}</h5>
+        <p>Direccion: ${parking.direccion}</p>
+        <p>Plazas disponibles: ${parking.numPlazas} plazas</p>
+        <p>Horario: ${parking.horario}</p>
+        <p>Precio: ${parking.precioHora}€/hora</p>
+    `;
+}
