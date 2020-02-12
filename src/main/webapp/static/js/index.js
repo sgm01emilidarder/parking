@@ -89,5 +89,7 @@ function loginController() {
         content.innerHTML = `
             <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login">${user}</button>
         `
+        $("#loginModal").modal('hide');
     }
+
 }
