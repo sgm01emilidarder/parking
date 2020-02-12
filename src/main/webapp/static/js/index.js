@@ -1,6 +1,5 @@
 let content = document.getElementById('cards');
 let parkings;
-let parking;
 
 function getParkings() {
     fetch('data/parkings.json')
@@ -32,7 +31,7 @@ function printParkings(parkings) {
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
-                        <button class="btn btn-primary" onclick="getParkingById(${parking.id})">Comprar ticket</button>
+                        <a class="btn btn-primary" onclick="getParkingById(${parking.id})" href="detallParking.html">Comprar ticket</a>
                     </div>
                 </div>
         `
@@ -40,13 +39,11 @@ function printParkings(parkings) {
 }
 
 function getParkingById(id){
-    parking = parkings[id];
-    window.location.replace("detallParking.html");
-
-    printParking();
+    localStorage.setItem("parking", JSON.stringify(parkings[id]));
 }
 
 function printParking(){
+    let parking = JSON.parse(localStorage.getItem("parking"));
     let imgParking = document.getElementById('imgParking');
     imgParking.src = "../img/" + parking.imagen;
 
@@ -54,7 +51,7 @@ function printParking(){
     infoParking.innerHTML = `
        <h5 class="mt-0">${parking.municipio}</h5>
         <p>Direccion: ${parking.direccion}</p>
-        <p>Plazas disponibles: ${parking.numPlazas}</p>
+        <p>Plazas disponibles: ${parking.numPlazas} plazas</p>
         <p>Horario: ${parking.horario}</p>
         <p>Precio: ${parking.precioHora}€/hora</p>
     `;
