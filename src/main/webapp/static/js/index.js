@@ -60,7 +60,9 @@ function printParking() {
 
 function cercar(nom) {
     if (nom !== "") {
-        let filtreParkings = parkings.filter(e => e.municipio === nom);
+        let filtreParkings = parkings.filter(function(e) {
+            return e.municipio.toLowerCase().indexOf(nom.toLowerCase()) > -1;
+        });
         printParkings(filtreParkings);
     } else{
         getParkings();
@@ -87,9 +89,55 @@ function loginController() {
     let filteredUser = usuaris.filter(e => e.usuario === user && e.password === pass);
     if (filteredUser.length){
         content.innerHTML = `
-            <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login">${user}</button>
+            <div class="dropdown">
+                <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${user}</button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Mis reservas</a>
+                    <a class="dropdown-item text-danger" onclick="closeUserSession()" href="#">Cerrar sesión</a>
+                 </div>
+            </div>
         `
         $("#loginModal").modal('hide');
+        localStorage.setItem("user", JSON.stringify(user));
     }
-
 }
+
+function checkConnectedUser(){
+    let content = document.getElementById('login');
+    let user;
+    if (JSON.parse(localStorage.getItem("user"))){
+        user = JSON.parse(localStorage.getItem("user"));
+        content.innerHTML = `
+        <div class="dropdown">
+            <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${user}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Mis reservas</a>
+                <a class="dropdown-item text-danger" onclick="closeUserSession()" href="#">Cerrar sesión</a>
+             </div>
+        </div>
+        `
+    } else{
+        content.innerHTML = `
+            <button class="btn btn-outline-success m-2 my-2 my-sm-0" data-toggle="modal" data-target="#loginModal">Log In</button>
+        `
+    }
+}
+
+function closeUserSession(){
+    localStorage. removeItem("user");
+    checkConnectedUser();
+    window.location.replace("index.html");
+}
+
+function checkConnectedUserForReserve(){
+    if (!JSON.parse(localStorage.getItem("user"))){
+        message("Es necesario iniciar sesión para reservar plaza");
+    } else {
+        document.getElementById('reserveForm').submit();
+    }
+}
+
+function message(msg) {
+    $("#modalMsg").html(msg);
+    $("#myModal").modal("show");
+};
