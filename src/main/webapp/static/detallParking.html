@@ -44,25 +44,41 @@
     <form id="reserveForm" class="d-flex justify-content-center col-5">
         <div class="form-group">
             <p class="text-center h3">Ticket</p>
-            <label for="matricula">Matricula</label>
+            <label for="horaReserva">Elige a que hora quieres la reserva:</label>
+            <input type="time" id="horaReserva" name="horaReserva"
+                   min="06:00" max="23:00" required>
+            <br>
+            <label for="tiempoReserva">Elige cuantas horas quieres reservar:</label>
+            <select name="select" id="tiempoReserva">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">Reservar todo el dia</option>
+            </select>
+            <br>
+            <label for="matricula">Matricula:</label>
             <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="descompte" id="nodescompte" value="nodescompte"
                        checked>
                 <label class="form-check-label" for="nodescompte">
-                    Sense descompte aplicable
+                    Sin descuento
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="descompte" id="places" value="places">
                 <label class="form-check-label" for="places">
-                    Totes les plaçes ocupades -5%
+                    Todas las plazas ocupadas -5%
                 </label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="descompte" id="electric" value="electric">
                 <label class="form-check-label" for="electric">
-                    Vehicle eléctric -10%
+                    Vehículo electrico -10%
                 </label>
             </div>
             <button type="button" class="btn btn-primary" onclick="checkConnectedUserForReserve()">Reservar plaza</button>

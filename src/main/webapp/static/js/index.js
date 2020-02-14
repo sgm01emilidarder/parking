@@ -32,7 +32,7 @@ function printParkings(parkings) {
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
                     <div class="card-body d-flex justify-content-center">
-                        <a class="btn btn-primary" onclick="getParkingById(${parking.id})" href="detallParking.html">Comprar ticket</a>
+                        <a class="btn btn-primary" onclick="getParkingById(${parking.id})" href="detallParking.html">Reservar Plaza</a>
                     </div>
                 </div>
         `
@@ -60,7 +60,7 @@ function printParking() {
 
 function cercar(nom) {
     if (nom !== "") {
-        let filtreParkings = parkings.filter(function(e) {
+        let filtreParkings = parkings.filter(e => {
             return e.municipio.toLowerCase().indexOf(nom.toLowerCase()) > -1;
         });
         printParkings(filtreParkings);
@@ -68,6 +68,7 @@ function cercar(nom) {
         getParkings();
     }
 }
+
 function getUsers() {
     fetch('data/usuarios.json')
         .then(result => result.json())
@@ -140,4 +141,4 @@ function checkConnectedUserForReserve(){
 function message(msg) {
     $("#modalMsg").html(msg);
     $("#myModal").modal("show");
-};
+}
