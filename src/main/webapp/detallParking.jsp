@@ -1,11 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%=
-request.getSession().getAttribute("user")
-
-
-%>
-
 <%@include file="./common/header.jsp" %>
 
 
@@ -24,10 +18,10 @@ request.getSession().getAttribute("user")
         <div class="form-group">
             <p class="text-center h3">Ticket</p>
             <label for="horaReserva">Elige a que hora quieres la reserva:</label>
-            <input type="time" id="horaReserva" name="horaReserva" min="${parking.horaInici}" max="${parking.horaFi}" required>
+            <input type="time" id="horaReserva" name="horaReserva" min="${parking.horaInici}" max="${parking.horaFi}" step="3600" required>
             <br>
             <label for="tiempoReserva">Elige cuantas horas quieres reservar:</label>
-            <select name="tiempoReserva" onchange="" id="tiempoReserva">
+            <select name="tiempoReserva" onchange="calculatePrice(${parking.preuHora})" id="tiempoReserva">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -42,14 +36,14 @@ request.getSession().getAttribute("user")
             <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
             <br>
             <label for="descuentoAplicado">Descuento:</label>
-            <select name="select" onchange="" id="descuentoAplicado">
+            <select name="select" onchange="calculatePrice(${parking.preuHora})" id="descuentoAplicado">
                 <option value="1" selected>Sin descuento</option>
                 <option value="0.95">Todas las plazas ocupadas -5%</option>
                 <option value="0.9">Vehículo electrico -10%</option>
             </select>
             <br>
             <label for="precio">Precio:</label>
-            <input type="number" class="form-control euro" step="0.01" id="precio" name="precio" readonly>
+            <input type="number" class="form-control euro" step="0.01" id="precio" name="precio" value="${parking.preuHora}" readonly>
             <br>
             <button type="button" class="btn btn-primary" onclick="">Reservar plaza</button>
         </div>
