@@ -30,6 +30,14 @@ public class Usuario {
         this.contrasenya = userPass;
     }
 
+    public Usuario(String nom, String llinatges, String usuari, String contrasenya, List<Vehicle> vehicles) {
+        this.nom = nom;
+        this.llinatges = llinatges;
+        this.usuari = usuari;
+        this.contrasenya = contrasenya;
+        this.vehicles = vehicles;
+    }
+
     public int getId() {
         return id;
     }
