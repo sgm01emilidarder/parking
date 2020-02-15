@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserServlet {
@@ -45,11 +46,11 @@ public class UserServlet {
         String llinatges = request.getParameter("surname");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String matricula = request.getParameter("matricula");
-        Vehicle vehiculo = new Vehicle(matricula);
-        List<Vehicle>(vehiculo);
+        Vehicle vehiculo = new Vehicle(request.getParameter("matricula"));
+        List<Vehicle> matricula = new ArrayList<>();
+        matricula.add(vehiculo);
 
-        Usuario user = new Usuario(nom, llinatges, username, password, );
+        Usuario user = new Usuario(nom, llinatges, username, password, matricula);
 
         int registrosModificados = new UsuarioDao().create(user);
         System.out.println("Registres modificats:" + registrosModificados);
