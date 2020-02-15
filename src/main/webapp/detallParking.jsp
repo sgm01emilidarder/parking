@@ -3,8 +3,8 @@
 <%@include file="./common/header.jsp" %>
 
 <div class="row media mt-3">
-    <img src="img/${parking.imatge}" id="imgParking" class="col-4 rounded imagenDetalle" alt="...">
-    <div id="infoParking" class="media-body">
+    <img src="img/${parking.imatge}" id="imgParking" class="col-md-4 rounded img-fluid image " alt="...">
+    <div id="infoParking" class="media-body col-md-3 mt-3">
         <h5 class="mt-0">${parking.municipi}</h5>
         <p>Direccion: ${parking.direccio}</p>
         <p>Plazas disponibles: ${parking.numPlaces} plazas</p>
@@ -13,7 +13,7 @@
     </div>
 
 
-    <form id="reserveForm" class="d-flex justify-content-center col-5">
+    <form id="reserveForm" class="d-flex justify-content-center col-md-5">
         <div class="form-group">
             <p class="text-center h3">Ticket</p>
             <label for="horaReserva">Elige a que hora quieres la reserva:</label>
