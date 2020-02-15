@@ -5,6 +5,8 @@ import com.parking.dto.Usuario;
 import com.parking.dto.Vehicle;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -12,7 +14,61 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserServlet {
+@WebServlet("/client")
+public class UserServlet  extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        /*String action = request.getParameter("action");
+        if (action != null) {
+            switch (action) {
+                case "edit":
+                    this.editClient(request, response);
+                    break;
+                default:
+                    this.showListClient(request, response);
+            }
+        } else {
+            this.showListClient(request, response);
+        }*/
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String action = request.getParameter("action");
+        if (action != null) {
+            switch (action) {
+                /*case "delete":
+                    this.deleteClient(request, response);
+                    break;
+                case "insert":
+                    this.insertClient(request, response);
+                    break;
+                case "update":
+                    this.updateClient(request, response);
+                    break;*/
+                case "create":
+                    this.createClient(request, response);
+                    break;
+                case "login":
+                    this.loginClient(request, response);
+                    break;
+                case "close":
+                    this.closeClient(request, response);
+                    break;
+                default:
+                    this.returnToIndex(request, response);
+            }
+        } else {
+            this.returnToIndex(request, response);
+        }
+    }
+
+    private void returnToIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendRedirect("index.jsp");
+    }
 
     private void loginClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -36,16 +92,19 @@ public class UserServlet {
 
     }
 
-    private void returnToIndex(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void closeClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.setAttribute("user", null);
         response.sendRedirect("index.jsp");
     }
 
+
     private void createClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String nom = request.getParameter("name");
-        String llinatges = request.getParameter("surname");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String nom = request.getParameter("nom");
+        String llinatges = request.getParameter("llinatge1" + " " + "llinatge2");
+        String username = request.getParameter("nom");
+        String password = request.getParameter("contrasenya");
         Vehicle vehiculo = new Vehicle(request.getParameter("matricula"));
         List<Vehicle> matricula = new ArrayList<>();
         matricula.add(vehiculo);
