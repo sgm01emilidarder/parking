@@ -43,27 +43,6 @@ public class ParkingServlet extends HttpServlet {
             response.sendRedirect("detallParking.jsp");
         }
 
-        private void loginClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-            String userUsername = request.getParameter("userUsername");
-            String userPass = request.getParameter("userPass");
-            Usuario user = new UsuarioDao().findByUserPass(new Usuario(userUsername, userPass));
-
-            System.out.println(user);
-
-            if(user.getUsuari().equals("admin")) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                response.sendRedirect("listClients.jsp");
-            } else if(user.getId() != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                response.sendRedirect("index.jsp");
-            } else {
-                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "message goes here");
-            }
-
-        }
 
                 /*String action = request.getParameter("action");
         if (action != null) {
