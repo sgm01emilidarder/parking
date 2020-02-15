@@ -19,7 +19,7 @@
                 <li class="list-group-item"><b>Plazas disponibles:</b> ${parking.numPlaces}</li>
             </ul>
             <div class="card-body d-flex justify-content-center">
-                <a class="btn btn-primary" onclick="" href="detallParking.jsp">Reservar Plaza</a>
+                <a class="btn btn-primary" href="${pageContext.request.contextPath}/parking?idParking=${parking.id}">Reservar Plaza</a>
             </div>
         </div>
     </c:forEach>

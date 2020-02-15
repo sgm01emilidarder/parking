@@ -1,6 +1,8 @@
 package com.parking.dao;
 
 import java.sql.*;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
 
@@ -13,7 +15,7 @@ public class FacturaDao {
     public FacturaDao() {}
 
     public List<Factura> listar() {
-        String SQL_SELECT = "SELECT `fac_id`, `fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id` " + " FROM factures";
+        String SQL_SELECT = "SELECT `fac_id`, `fac_data`, `fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id` " + " FROM factures";
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -26,13 +28,14 @@ public class FacturaDao {
             rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("fac_id");
+                LocalDate data = rs.getDate("fac_data").toLocalDate();
                 LocalTime horaInici = rs.getTime("fac_hora_inici").toLocalTime();
                 LocalTime horaFi = rs.getTime("fac_hora_final").toLocalTime();
                 double  preu = rs.getDouble("fac_preu");
                 Usuario usuari = new Usuario(rs.getInt("fac_usu_id"));
                 Parking parking = new Parking(rs.getInt("fac_par_id"));
 
-                factura = new Factura(id, horaInici, horaFi, preu, usuari, parking);
+                factura = new Factura(id, data, horaInici, horaFi, preu, usuari, parking);
                 facturas.add(factura);
             }
         } catch (SQLException ex) {
@@ -46,7 +49,7 @@ public class FacturaDao {
     }
 
     public Factura findById(Factura factura) {
-        String SQL_SELECT_BY_ID = "SELECT `fac_id`, `fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id` "
+        String SQL_SELECT_BY_ID = "SELECT `fac_id`, `fac_data`, `fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id` "
                 + " FROM factures WHERE fac_id = ?";
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -60,6 +63,7 @@ public class FacturaDao {
             rs.absolute(1);
 
             int id = rs.getInt("fac_id");
+            LocalDate data = rs.getDate("fac_data").toLocalDate();
             LocalTime horaInici = rs.getTime("fac_hora_inici").toLocalTime();
             LocalTime horaFi = rs.getTime("fac_hora_final").toLocalTime();
             double  preu = rs.getDouble("fac_preu");
@@ -67,6 +71,7 @@ public class FacturaDao {
             Parking parking = new Parking(rs.getInt("fac_par_id"));
 
             factura.setId(id);
+            factura.setData(data);
             factura.setHoraInici(horaInici);
             factura.setHoraFi(horaFi);
             factura.setPreu(preu);
@@ -84,8 +89,8 @@ public class FacturaDao {
     }
 
     public int create(Factura factura) {
-        String SQL_INSERT = "INSERT INTO factures(`fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id`) "
-                + " VALUES(?, ?, ?, ?, ?)";
+        String SQL_INSERT = "INSERT INTO factures(fac_data, `fac_hora_inici`, `fac_hora_final`, `fac_preu`, `fac_usu_id`, `fac_par_id`) "
+                + " VALUES(?, ?, ?, ?, ?, ?)";
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -93,6 +98,8 @@ public class FacturaDao {
             conn = DBConnection.getConnection();
             stmt = conn.prepareStatement(SQL_INSERT);
             int i = 1;
+            Date data = Date.valueOf(factura.getData());
+            stmt.setDate(i++, data);
             stmt.setTime(i++, java.sql.Time.valueOf(factura.getHoraInici()));
             stmt.setTime(i++, java.sql.Time.valueOf(factura.getHoraFi()));
             stmt.setDouble(i++, factura.getPreu());
@@ -111,7 +118,7 @@ public class FacturaDao {
 
     public int update(Factura factura) {
         String SQL_UPDATE = "UPDATE factures "
-                + " SET fac_hora_inici=?, fac_hora_final=?, fac_preu=?, fac_usu_id=?,  fac_par_id=? WHERE fac_id=?";
+                + " SET fac_data=?, fac_hora_inici=?, fac_hora_final=?, fac_preu=?, fac_usu_id=?,  fac_par_id=? WHERE fac_id=?";
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -119,6 +126,8 @@ public class FacturaDao {
             conn = DBConnection.getConnection();
             stmt = conn.prepareStatement(SQL_UPDATE);
             int i = 1;
+            Date data = Date.valueOf(factura.getData());
+            stmt.setDate(i++, data);
             stmt.setTime(i++, java.sql.Time.valueOf(factura.getHoraInici()));
             stmt.setTime(i++, java.sql.Time.valueOf(factura.getHoraFi()));
             stmt.setDouble(i++, factura.getPreu());
