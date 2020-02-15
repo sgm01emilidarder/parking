@@ -102,12 +102,16 @@ public class UserServlet  extends HttpServlet {
     private void createClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String nom = request.getParameter("nom");
-        String llinatges = request.getParameter("llinatge1") + " " + request.getParameter("llinatge2");
+        String llinatges = request.getParameter("llinatges");
         String username = request.getParameter("nom");
         String password = request.getParameter("contrasenya");
         Vehicle vehiculo = new Vehicle(request.getParameter("matricula"));
+        Vehicle vehiculo2 = new Vehicle(request.getParameter("matricula2"));
+        Vehicle vehiculo3 = new Vehicle(request.getParameter("matricula3"));
         List<Vehicle> matricula = new ArrayList<>();
         matricula.add(vehiculo);
+        matricula.add(vehiculo2);
+        matricula.add(vehiculo3);
 
         Usuario user = new Usuario(nom, llinatges, username, password, matricula);
 

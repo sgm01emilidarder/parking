@@ -6,7 +6,7 @@
 <div class="row">
     <form class="mx-auto col-4" action="${pageContext.request.contextPath}/client?action=create" method="POST">
         <div class="form-group">
-            <label for="nom">Nom</label>
+            <label for="nom">Nom(usuari)</label>
             <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
 
             <label for="llinatges">Llinatges</label>
@@ -16,10 +16,10 @@
             <input type="text" class="form-control" id="matricula1" name="matricula" placeholder="0000XYZ" required>
             
             <label for="matricula2">Matricula 2</label>
-            <input type="text" class="form-control" id="matricula2" name="matricula" placeholder="0000XYZ">
+            <input type="text" class="form-control" id="matricula2" name="matricula2" placeholder="0000XYZ">
 
             <label for="matricula3">Matricula 3</label>
-            <input type="text" class="form-control" id="matricula3" name="matricula" placeholder="0000XYZ">
+            <input type="text" class="form-control" id="matricula3" name="matricula3" placeholder="0000XYZ">
 
             <label for="inputPassword1">Contrasenya</label>
             <input type="password" class="form-control" id="inputPassword1" name="contrasenya" required>

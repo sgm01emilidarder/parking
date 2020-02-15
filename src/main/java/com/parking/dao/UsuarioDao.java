@@ -142,7 +142,7 @@ public class UsuarioDao {
 
     public int create(Usuario user) {
         String SQL_INSERT = "INSERT INTO usuaris(usu_nom, usu_llinatges, usu_username, usu_password, usu_matricula1, usu_matricula2, usu_matricula3) "
-                + " VALUES(?, ?, ?, SHA2(?,256), ?)";
+                + " VALUES(?, ?, ?, SHA2(?,256), ?, ?, ?)";
         Connection conn = null;
         PreparedStatement stmt = null;
         List<Vehicle> matriculas = user.getVehicles();
@@ -156,8 +156,8 @@ public class UsuarioDao {
             stmt.setString(i++, user.getUsuari());
             stmt.setString(i++, user.getContrasenya());
             stmt.setString(i++, matriculas.get(0).getMatricula());
-            stmt.setString(i++, matriculas.get(0).getMatricula());
-            stmt.setString(i++, matriculas.get(0).getMatricula());
+            stmt.setString(i++, matriculas.get(1).getMatricula());
+            stmt.setString(i++, matriculas.get(2).getMatricula());
             System.out.println(user.toString());
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {

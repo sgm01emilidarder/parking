@@ -6,22 +6,25 @@
 <div class="row">
     <form class="mx-auto col-4" action="${pageContext.request.contextPath}/client?action=create" method="POST">
         <div class="form-group">
-            <label for="nom">Nom</label>
-            <input type="text" class="form-control" id="nom" name="nom" aria-describedby="emailHelp">
+            <label for="nom">Nom(usuari)</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom" required>
 
-            <label for="llinatge1">Llinatge1</label>
-            <input type="text" class="form-control" id="llinatge1" name="llinatge1" aria-describedby="emailHelp">
+            <label for="llinatges">Llinatges</label>
+            <input type="text" class="form-control" id="llinatges" name="llinatges" placeholder="Llinatges" required>
 
-            <label for="llinatge2">Llinatge 2</label>
-            <input type="text" class="form-control" id="llinatge2" name="llinatge2" aria-describedby="emailHelp">
+            <label for="matricula1">Matricula 1</label>
+            <input type="text" class="form-control" id="matricula1" name="matricula" placeholder="0000XYZ" required>
+            
+            <label for="matricula2">Matricula 2</label>
+            <input type="text" class="form-control" id="matricula2" name="matricula2" placeholder="0000XYZ">
 
-            <label for="matricula">Matricula</label>
-            <input type="text" class="form-control" id="matricula" name="matricula" placeholder="0000XYZ">
+            <label for="matricula3">Matricula 3</label>
+            <input type="text" class="form-control" id="matricula3" name="matricula3" placeholder="0000XYZ">
 
             <label for="inputPassword1">Contrasenya</label>
-            <input type="password" class="form-control" id="inputPassword1" name="contrasenya">
+            <input type="password" class="form-control" id="inputPassword1" name="contrasenya" required>
             <small id="passHelp" class="form-text text-muted">Repeteix la contrasenya.</small>
-            <input type="password" class="form-control" id="inputPassword2" name="contrasenya">
+            <input type="password" class="form-control" id="inputPassword2" name="contrasenya" required>
         </div>
 
         <div class="form-group form-check">
