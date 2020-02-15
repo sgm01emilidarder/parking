@@ -1,8 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%@include file="./common/header.jsp" %>
-
-
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -20,12 +17,10 @@
                     </div>
                     <div class="col mb-4">
                         <button type="button" onclick="getUsers()" class="btn btn-success float-right">Iniciar sesion</button>
-                        <small class="">¿No tienes una cuenta?, crea una <a href="./crearCompte.html">aquí</a>.</small>
+                        <small class="">¿No tienes una cuenta?, crea una <a href="./registro.jsp">aquí</a>.</small>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<%@include file="./common/footer.jsp" %>

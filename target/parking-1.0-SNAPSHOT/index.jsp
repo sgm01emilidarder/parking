@@ -25,4 +25,7 @@
     </c:forEach>
 </div>
 
+
+<%@include file="./login.jsp" %>
+
 <%@include file="./common/footer.jsp" %>
