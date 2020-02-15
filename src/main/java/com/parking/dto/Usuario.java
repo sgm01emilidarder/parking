@@ -8,15 +8,15 @@ public class Usuario {
     private int id;
     private String nom;
     private String llinatges;
-    private String mail;
+    private String usuari;
     private String contrasenya;
     private List<Vehicle> vehicles;
 
-    public Usuario(int id, String nom, String llinatges, String mail, String contrasenya, List<Vehicle> vehicles) {
+    public Usuario(int id, String nom, String llinatges, String usuari, String contrasenya, List<Vehicle> vehicles) {
         this.id = id;
         this.nom = nom;
         this.llinatges = llinatges;
-        this.mail = mail;
+        this.usuari = usuari;
         this.contrasenya = contrasenya;
         this.vehicles = vehicles;
     }
@@ -45,12 +45,12 @@ public class Usuario {
         this.llinatges = llinatges;
     }
 
-    public String getMail() {
-        return mail;
+    public String getUsuari() {
+        return usuari;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setUsuari(String usuari) {
+        this.usuari = usuari;
     }
 
     public String getContrasenya() {
@@ -88,7 +88,7 @@ public class Usuario {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", llinatges='" + llinatges + '\'' +
-                ", mail='" + mail + '\'' +
+                ", usuari='" + usuari + '\'' +
                 ", contrasenya='" + contrasenya + '\'' +
                 ", vehicles=" + vehicles +
                 '}';
