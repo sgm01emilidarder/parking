@@ -51,11 +51,11 @@ public class ParkingServlet extends HttpServlet {
 
             System.out.println(user);
 
-            if(user.getUsername().equals("admin") && user.getDni() != null) {
+            if(user.getUsuari().equals("admin")) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect("listClients.jsp");
-            } else if(user.getDni() != null) {
+            } else if(user.getId() != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect("index.jsp");

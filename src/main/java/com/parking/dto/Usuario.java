@@ -25,6 +25,11 @@ public class Usuario {
         this.vehicles = vehicles;
     }
 
+    public Usuario(String userUsername, String userPass) {
+        this.usuari = userUsername;
+        this.contrasenya = userPass;
+    }
+
     public int getId() {
         return id;
     }
