@@ -7,3 +7,9 @@
     width: 30vw;
     height: 15vw;
 }
+
+.euro::before {
+    content: "€";
+    padding: 0 5px;
+    text-align: center;
+}

@@ -27,7 +27,7 @@ function printParkings(parkings) {
                         <p class="card-text text-center">${parking.direccion}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><b>Horario:</b> ${parking.horario}</li>
+                        <li class="list-group-item"><b>Horario:</b> ${parking.horaInicio}-${parking.horaFin}</li>
                         <li class="list-group-item"><b>Precio:</b> ${parking.precioHora} €/hora</li>
                         <li class="list-group-item"><b>Tipo:</b> ${parking.tipo}</li>
                     </ul>
@@ -49,6 +49,9 @@ function printParking() {
     imgParking.src = "../img/" + parking.imagen;
 
     let infoParking = document.getElementById('infoParking');
+    let inputHours = document.getElementById('horaReserva');
+    let precio = document.getElementById('precio');
+
     infoParking.innerHTML = `
        <h5 class="mt-0">${parking.municipio}</h5>
         <p>Direccion: ${parking.direccion}</p>
@@ -56,7 +59,18 @@ function printParking() {
         <p>Horario: ${parking.horario}</p>
         <p>Precio: ${parking.precioHora}€/hora</p>
     `;
+
+    inputHours.min = parking.horaInicio;
+    inputHours.max = parking.horaFin;
+
+    precio.value = parking.precioHora;
 }
+
+function calculatePrice(){
+    let parking = JSON.parse(localStorage.getItem("parking"));
+    $("#precio").val(parseInt(parking.precioHora) * $("#tiempoReserva").val() * $("#descuentoAplicado").val());
+}
+
 
 function cercar(nom) {
     if (nom !== "") {
@@ -104,11 +118,11 @@ function loginController() {
 }
 
 function checkConnectedUser(){
-    let content = document.getElementById('login');
+    let loginButton = document.getElementById('login');
     let user;
     if (JSON.parse(localStorage.getItem("user"))){
         user = JSON.parse(localStorage.getItem("user"));
-        content.innerHTML = `
+        loginButton.innerHTML = `
         <div class="dropdown">
             <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="login" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${user}</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
