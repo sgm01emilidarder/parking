@@ -1,18 +1,21 @@
 package com.parking.dto;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
 public class Factura {
     private int id;
+    private LocalDate data;
     private LocalTime horaInici;
     private LocalTime horaFi;
     private double preu;
     private Usuario usuari;
     private Parking parking;
 
-    public Factura(int id, LocalTime horaInici, LocalTime horaFi, double preu, Usuario usuari, Parking parking) {
+    public Factura(int id, LocalDate data, LocalTime horaInici, LocalTime horaFi, double preu, Usuario usuari, Parking parking) {
         this.id = id;
+        this.data = data;
         this.horaInici = horaInici;
         this.horaFi = horaFi;
         this.preu = preu;
@@ -26,6 +29,14 @@ public class Factura {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public LocalTime getHoraInici() {
@@ -85,6 +96,7 @@ public class Factura {
     public String toString() {
         return "Factura{" +
                 "id=" + id +
+                ", data=" + data +
                 ", horaInici=" + horaInici +
                 ", horaFi=" + horaFi +
                 ", preu=" + preu +

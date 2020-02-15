@@ -31,9 +31,11 @@ public class ParkingServlet extends HttpServlet {
 
             response.sendRedirect("index.jsp");
         } else if (servletPath.equals("/parking")){
-            int idParking = Integer.parseInt(request.getParameter("idParking"));
-            Parking parking = new Parking(idParking);
-            parking = new ParkingService().getParking(parking);
+            Parking idParking = new Parking(Integer.parseInt(request.getParameter("idParking")));
+
+            Parking parking = new ParkingService().getParking(idParking);
+
+            System.out.println(parking.toString());
 
             HttpSession session = request.getSession();
             session.setAttribute("parking", parking);
