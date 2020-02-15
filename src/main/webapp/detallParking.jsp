@@ -2,7 +2,6 @@
 
 <%@include file="./common/header.jsp" %>
 
-
 <div class="row media mt-3">
     <img src="img/${parking.imatge}" id="imgParking" class="col-4 rounded imagenDetalle" alt="...">
     <div id="infoParking" class="media-body">
