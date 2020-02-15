@@ -26,6 +26,7 @@ DROP TABLE IF EXISTS `factures`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `factures` (
   `fac_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fac_data` date NOT NULL,
   `fac_hora_inici` time NOT NULL,
   `fac_hora_final` time NOT NULL,
   `fac_preu` double DEFAULT NULL,
@@ -118,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-15 17:40:27
+-- Dump completed on 2020-02-15 18:31:52

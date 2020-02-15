@@ -18,10 +18,10 @@
         <div class="form-group">
             <p class="text-center h3">Ticket</p>
             <label for="horaReserva">Elige a que hora quieres la reserva:</label>
-            <input type="time" id="horaReserva" name="horaReserva" required>
+            <input type="time" id="horaReserva" name="horaReserva" min="${parking.horaInici}" max="${parking.horaFi}" required>
             <br>
             <label for="tiempoReserva">Elige cuantas horas quieres reservar:</label>
-            <select name="select" onchange="" id="tiempoReserva">
+            <select name="tiempoReserva" onchange="" id="tiempoReserva">
                 <option value="1" selected>1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
