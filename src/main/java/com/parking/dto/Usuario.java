@@ -12,6 +12,10 @@ public class Usuario {
     private String contrasenya;
     private List<Vehicle> vehicles;
 
+    public Usuario(int id) {
+        this.id = id;
+    }
+
     public Usuario(int id, String nom, String llinatges, String usuari, String contrasenya, List<Vehicle> vehicles) {
         this.id = id;
         this.nom = nom;

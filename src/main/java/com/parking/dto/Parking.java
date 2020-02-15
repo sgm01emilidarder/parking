@@ -14,6 +14,10 @@ public class Parking {
     private String imatge;
     private String tipus;
 
+    public Parking(int id) {
+        this.id = id;
+    }
+
     public Parking(int id, String municipi, int numPlaces, String direccio, LocalTime horaInici, LocalTime horaFi, double preuHora, String imatge, String tipus) {
         this.id = id;
         this.municipi = municipi;
