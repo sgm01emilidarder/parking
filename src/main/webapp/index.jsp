@@ -3,11 +3,11 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@include file="./common/header.jsp" %>
-
+<hr>
 <div class="row mt-3">
     <c:forEach var="parking" items="${parkings}">
-        <div class="card col-4" style="width: 18rem;">
-            <img src="img/${parking.imatge}" class="imagen rounded mt-2" alt="...">
+        <div class="card col-md-4" style="width: 18rem;">
+            <img src="img/${parking.imatge}" class="img-fluid image rounded mt-2" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-center">${parking.municipi}</h5>
                 <p class="card-text text-center">${parking.direccio}</p>
