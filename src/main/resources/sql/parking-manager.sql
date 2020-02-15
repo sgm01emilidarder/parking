@@ -66,7 +66,7 @@ CREATE TABLE `parkings` (
   `par_imatge` varchar(45) DEFAULT NULL,
   `par_tipus` enum('cubierto','asfaltado','tierra') DEFAULT NULL,
   PRIMARY KEY (`par_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,6 +75,7 @@ CREATE TABLE `parkings` (
 
 LOCK TABLES `parkings` WRITE;
 /*!40000 ALTER TABLE `parkings` DISABLE KEYS */;
+INSERT INTO `parkings` VALUES (1,'Palma',100,'Carrer del Marquès de la Fontsanta, 52','08:00:00','22:00:00',5,'palma.jpg','cubierto'),(2,'Alaró',180,'Plaça Clastra de son Togores, 30','08:00:00','20:00:00',3,'alaro.jpg','tierra'),(3,'Inca',300,'Plaça Mare de Déu de Lluch','06:00:00','23:00:00',6,'inca.jpg','asfaltado');
 /*!40000 ALTER TABLE `parkings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-15 16:32:02
+-- Dump completed on 2020-02-15 17:40:27

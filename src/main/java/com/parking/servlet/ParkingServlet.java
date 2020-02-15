@@ -1,5 +1,6 @@
 package com.parking.servlet;
 
+import com.parking.dao.ParkingDao;
 import com.parking.dto.Parking;
 import com.parking.service.ParkingService;
 
@@ -27,6 +28,15 @@ public class ParkingServlet extends HttpServlet {
             session.setAttribute("parkings", parkings);
 
             response.sendRedirect("index.jsp");
+        } else if (servletPath.equals("/parking")){
+            int idParking = Integer.parseInt(request.getParameter("idParking"));
+            Parking parking = new Parking(idParking);
+            parking = new ParkingService().getParking(parking);
+
+            HttpSession session = request.getSession();
+            session.setAttribute("parking", parking);
+
+            response.sendRedirect("detallParking.jsp");
         }
 
                 /*String action = request.getParameter("action");
