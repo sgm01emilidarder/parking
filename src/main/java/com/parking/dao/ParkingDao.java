@@ -176,6 +176,7 @@ public class ParkingDao {
             stmt.setDouble(i++,parking.getPreuHora());
             stmt.setString(i++, parking.getImatge());
             stmt.setString(i++, parking.getTipus());
+            stmt.setInt(i++, parking.getId());
             rows = stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);

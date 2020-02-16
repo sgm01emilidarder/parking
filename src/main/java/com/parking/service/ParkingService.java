@@ -17,4 +17,10 @@ public class ParkingService {
     public List<Parking> getParkingsFiltered(String parkingName){
         return new ParkingDao().listByName(parkingName);
     }
+
+    public int updateParking(Parking parking){
+        return new ParkingDao().update(parking);
+    }
+
+
 }
