@@ -41,7 +41,7 @@
                 <option value="0.9">Vehículo electrico -10%</option>
             </select>
             <br>
-            <label for="precio">Precio:</label>
+            <label for="precio">Precio(€):</label>
             <input type="number" class="form-control euro" step="0.01" id="precio" name="precio" value="${parking.preuHora}" readonly>
             <br>
             <button type="button" class="btn btn-primary">Reservar plaza</button>
