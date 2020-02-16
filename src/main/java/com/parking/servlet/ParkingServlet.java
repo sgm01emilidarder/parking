@@ -24,12 +24,7 @@ public class ParkingServlet extends HttpServlet {
         String servletPath = request.getServletPath();
 
         if (servletPath.equals("/")) {
-            List<Parking> parkings = new ParkingService().getParkings();
-
-            HttpSession session = request.getSession();
-            session.setAttribute("parkings", parkings);
-
-            response.sendRedirect("index.jsp");
+            this.showListParking(request, response);
         } else if (servletPath.equals("/parking")){
             Parking idParking = new Parking(Integer.parseInt(request.getParameter("idParking")));
 
@@ -58,14 +53,14 @@ public class ParkingServlet extends HttpServlet {
         }*/
     }
 
-/*    @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Recuperam l'acció a realitzar i es crida a la funció corresponent
         String action = request.getParameter("action");
         if (action != null) {
             switch (action) {
-                case "delete":
+               /* case "delete":
                     this.deleteClient(request, response);
                     break;
                 case "insert":
@@ -73,14 +68,34 @@ public class ParkingServlet extends HttpServlet {
                     break;
                 case "update":
                     this.updateClient(request, response);
+                    break;*/
+                case "search":
+                    this.showListParkingFiltered(request, response);
                     break;
                 default:
-                    this.showListClient(request, response);
+                    this.showListParking(request, response);
             }
         } else {
-            this.showListClient(request, response);
+            this.showListParking(request, response);
         }
-    }*/
+    }
 
+    private void showListParking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Parking> parkings = new ParkingService().getParkings();
 
+        HttpSession session = request.getSession();
+        session.setAttribute("parkings", parkings);
+
+        response.sendRedirect("index.jsp");
+    }
+
+    private void showListParkingFiltered(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String parkingName = request.getParameter("cerca");
+        List<Parking> parkings = new ParkingService().getParkingsFiltered(parkingName);
+
+        HttpSession session = request.getSession();
+        session.setAttribute("parkings", parkings);
+
+        response.sendRedirect("index.jsp");
+    }
 }

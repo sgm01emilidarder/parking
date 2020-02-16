@@ -44,7 +44,7 @@
             <label for="precio">Precio:</label>
             <input type="number" class="form-control euro" step="0.01" id="precio" name="precio" value="${parking.preuHora}" readonly>
             <br>
-            <button type="button" class="btn btn-primary" onclick="">Reservar plaza</button>
+            <button type="button" class="btn btn-primary">Reservar plaza</button>
         </div>
     </form>
 </div>

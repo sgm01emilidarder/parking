@@ -13,4 +13,8 @@ public class ParkingService {
     public Parking getParking(Parking parking){
         return new ParkingDao().findById(parking);
     }
+
+    public List<Parking> getParkingsFiltered(String parkingName){
+        return new ParkingDao().listByName(parkingName);
+    }
 }

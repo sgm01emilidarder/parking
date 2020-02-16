@@ -1,4 +1,7 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,17 +32,17 @@
                 </li>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0" onsubmit="return false">
-                <input class="form-control mr-sm-2" type="search" id="cerca" onkeyup="cercar(this.value)" name="cerca" placeholder="Cerca" aria-label="Cerca">
-                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="cercar(cerca.value)" type="button">Cercar</button>
+            <form action="${pageContext.request.contextPath}/parking?action=search" method="post" class="form-inline my-2 my-lg-0" >
+                <input class="form-control mr-sm-2" type="search" id="cerca" name="cerca" placeholder="Cerca" aria-label="Cerca">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Cercar</button>
             </form>
             <c:if test="${user.nom==null}">
                 <span id="login"><button class="btn btn-outline-success m-2 my-2 my-sm-0" data-toggle="modal" data-target="#loginModal">Log In</button></span>
             </c:if>
-            <c:if test="${user!=null}">
+            <c:if test="${user.nom!=null}">
                 <div class="btn-group">
                     <button class="btn btn-outline-success m-2 my-2 my-sm-0" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false"><c:out value="${user.nom}"/> <i
+                            aria-haspopup="true" aria-expanded="false">${user.nom} <i
                             class="fas fa-user"></i></button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item " <%--href="${pageContext.request.contextPath}/reserva?action=list&idCustomer=${usuari.id}"--%>>Mis reservas</a>

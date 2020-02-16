@@ -91,6 +91,44 @@ public class ParkingDao {
         return parking;
     }
 
+    public List<Parking> listByName(String parkingName) {
+        String SQL_SELECT = "SELECT `par_id`, `par_municipi`, `par_numPlaces`, `par_direccio`, `par_horaInici`, `par_horaFi`, `par_preuHora`, `par_imatge`, `par_tipus` "
+                + " FROM parkings WHERE par_municipi LIKE ?";
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Parking parking = null;
+        List<Parking> parkings = new ArrayList<>();
+
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.prepareStatement(SQL_SELECT);
+            stmt.setString(1, "%" + parkingName + "%");
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("par_id");
+                String municipi = rs.getString("par_municipi");
+                int numPlaces = rs.getInt("par_numPlaces");
+                String direccio = rs.getString("par_direccio");
+                LocalTime horaInici = rs.getTime("par_horaInici").toLocalTime();
+                LocalTime horaFi = rs.getTime("par_horaFi").toLocalTime();
+                double preuHora = rs.getDouble("par_preuHora");
+                String imatge = rs.getString("par_imatge");
+                String tipus = rs.getString("par_tipus");
+
+                parking = new Parking(id, municipi, numPlaces, direccio, horaInici, horaFi, preuHora, imatge, tipus);
+                parkings.add(parking);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace(System.out);
+        } finally {
+            DBConnection.close(rs);
+            DBConnection.close(stmt);
+            DBConnection.close(conn);
+        }
+        return parkings;
+    }
+
     public int create(Parking parking) {
         String SQL_INSERT = "INSERT INTO parkings(`par_municipi`, `par_numPlaces`, `par_direccio`, `par_horaInici`, `par_horaFi`, `par_preuHora`, `par_imatge`, `par_tipus`) "
                 + " VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
