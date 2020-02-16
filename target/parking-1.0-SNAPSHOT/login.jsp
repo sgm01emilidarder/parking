@@ -16,7 +16,7 @@
                         <input type="password" name="userPass" class="form-control" id="pass" placeholder="contraseña">
                     </div>
                     <div class="col mb-4">
-                        <button type="button" onclick="checkUser()" class="btn btn-success float-right">Iniciar sesion</button>
+                        <button type="button" onclick="checkUserAndPass()" class="btn btn-success float-right">Iniciar sesion</button>
                         <small class="">¿No tienes una cuenta?, crea una <a href="./registro.jsp">aquí</a>.</small>
                     </div>
                 </form>

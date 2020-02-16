@@ -2,8 +2,8 @@ function calculatePrice(price){
     $("#precio").val((price * $("#tiempoReserva").val() * $("#descuentoAplicado").val()).toFixed(1));
 }
 
-function checkUser(){
-    let pageContext = document.getElementById("loginForm");
+function checkUserAndPass(){
+    let pageContext = document.getElementById("pageContext").value;
     let username = document.getElementById('user').value;
     let password = document.getElementById('pass').value;
     $.ajax({
@@ -18,7 +18,7 @@ function checkUser(){
             console.log("ERROR: ", e);
             document.getElementById('alertMessage').className="alert alert-danger";
         },
-        done : function() {
+        done : function(e) {
             console.log("DONE");
         }
     });
