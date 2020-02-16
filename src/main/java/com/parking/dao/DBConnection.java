@@ -3,7 +3,7 @@ package com.parking.dao;
 import java.sql.*;
 
 public class DBConnection {
-    private static final String JDBC_URL = "jdbc:mysql://localhost/parking-manager?useUnicode=yes;characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String JDBC_URL = "jdbc:mysql://192.168.1.11:3306/parking-manager?useUnicode=yes;characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "admin";
 

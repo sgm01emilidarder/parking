@@ -30,7 +30,7 @@
             </ul>
 
             <form class="form-inline my-2 my-lg-0" onsubmit="return false">
-                <input class="form-control mr-sm-2" type="search" id="cerca" name="cerca" placeholder="Cerca" aria-label="Cerca">
+                <input class="form-control mr-sm-2" type="search" id="cerca" onkeyup="cercar(this.value)" name="cerca" placeholder="Cerca" aria-label="Cerca">
                 <button class="btn btn-outline-primary my-2 my-sm-0" onclick="cercar(cerca.value)" type="button">Cercar</button>
             </form>
             <c:if test="${user.nom==null}">
