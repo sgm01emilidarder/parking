@@ -12,8 +12,9 @@ public class Factura {
     private double preu;
     private Usuario usuari;
     private Parking parking;
+    private Vehicle vehicle;
 
-    public Factura(int id, LocalDate data, LocalTime horaInici, LocalTime horaFi, double preu, Usuario usuari, Parking parking) {
+    public Factura(int id, LocalDate data, LocalTime horaInici, LocalTime horaFi, double preu, Usuario usuari, Parking parking, Vehicle vehicle) {
         this.id = id;
         this.data = data;
         this.horaInici = horaInici;
@@ -21,6 +22,7 @@ public class Factura {
         this.preu = preu;
         this.usuari = usuari;
         this.parking = parking;
+        this.vehicle = vehicle;
     }
 
     public int getId() {
@@ -79,6 +81,14 @@ public class Factura {
         this.parking = parking;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,6 +112,7 @@ public class Factura {
                 ", preu=" + preu +
                 ", usuari=" + usuari +
                 ", parking=" + parking +
+                ", vehicle=" + vehicle +
                 '}';
     }
 }

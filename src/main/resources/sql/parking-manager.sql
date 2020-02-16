@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `parking-manager` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `parking-manager`;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
 -- Host: localhost    Database: parking-manager
@@ -29,9 +27,10 @@ CREATE TABLE `factures` (
   `fac_data` date NOT NULL,
   `fac_hora_inici` time NOT NULL,
   `fac_hora_final` time NOT NULL,
-  `fac_preu` double DEFAULT NULL,
-  `fac_usu_id` int(11) DEFAULT NULL,
-  `fac_par_id` int(11) DEFAULT NULL,
+  `fac_preu` double NOT NULL,
+  `fac_usu_id` int(11) NOT NULL,
+  `fac_par_id` int(11) NOT NULL,
+  `fac_vehicle` varchar(7) NOT NULL,
   PRIMARY KEY (`fac_id`),
   KEY `fac_usu_fk_idx` (`fac_usu_id`),
   KEY `fac_par_fk_idx` (`fac_par_id`),
@@ -98,7 +97,7 @@ CREATE TABLE `usuaris` (
   `usu_matricula3` varchar(7) DEFAULT NULL,
   PRIMARY KEY (`usu_id`),
   UNIQUE KEY `usu_username_UNIQUE` (`usu_username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +106,7 @@ CREATE TABLE `usuaris` (
 
 LOCK TABLES `usuaris` WRITE;
 /*!40000 ALTER TABLE `usuaris` DISABLE KEYS */;
+INSERT INTO `usuaris` VALUES (4,'admin','admin','admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918','0','0','0');
 /*!40000 ALTER TABLE `usuaris` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -119,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-15 18:31:52
+-- Dump completed on 2020-02-16 14:31:02
