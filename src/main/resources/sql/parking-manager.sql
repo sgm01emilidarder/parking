@@ -75,7 +75,7 @@ CREATE TABLE `parkings` (
 
 LOCK TABLES `parkings` WRITE;
 /*!40000 ALTER TABLE `parkings` DISABLE KEYS */;
-INSERT INTO `parkings` VALUES (1,'Palma',100,'Carrer del Marquès de la Fontsanta, 52','08:00:00','22:00:00',5,'palma.jpg','cubierto'),(2,'Alaró',180,'Plaça Clastra de son Togores, 30','08:00:00','20:00:00',3,'alaro.jpg','tierra'),(3,'Inca',300,'Plaça Mare de Déu de Lluch','06:00:00','23:00:00',6,'inca.jpg','asfaltado');
+INSERT INTO `parkings` VALUES (1,'Palma',100,'Carrer del Marques de la Fontsanta, 52','08:00:00','22:00:00',5,'palma.jpg','cubierto'),(2,'Alaró',180,'Plaça Clastra de son Togores, 30','08:00:00','20:00:00',3,'alaro.jpg','tierra'),(3,'Inca',300,'Plaça Mare de Déu de Lluch','06:00:00','23:00:00',6,'inca.jpg','asfaltado');
 /*!40000 ALTER TABLE `parkings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,4 +119,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-16 14:31:02
+-- Dump completed on 2020-02-16 16:03:35
