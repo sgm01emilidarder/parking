@@ -27,7 +27,7 @@ public class UserService {
 
         System.out.println(user);
 
-        if (user.getUsuari().equals("admin")) {
+        if (user.getNom().equals("admin")) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("listParkings.jsp");
