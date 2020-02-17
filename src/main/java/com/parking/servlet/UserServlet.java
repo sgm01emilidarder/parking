@@ -75,6 +75,7 @@ public class UserServlet  extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("usuarios", usuarios);
 
+        response.sendRedirect("listClients.jsp");
     }
 
 }
