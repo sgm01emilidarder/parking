@@ -64,10 +64,10 @@ public class ParkingServlet extends HttpServlet {
             switch (action) {
                /* case "delete":
                     this.deleteClient(request, response);
-                    break;
-                case "insert":
-                    this.insertClient(request, response);
                     break;*/
+                case "insert":
+                    this.insertParking(request, response);
+                    break;
                 case "update":
                     this.updateParking(request, response);
                     break;
@@ -142,5 +142,24 @@ public class ParkingServlet extends HttpServlet {
         System.out.println("Registres modificats:" + registrosModificados);
 
         this.showParking(request, response);
+    }
+
+    private void insertParking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String municipi = request.getParameter("municipi");
+        int numPlaces = Integer.parseInt(request.getParameter("numPlaces"));
+        String direccio = request.getParameter("direccio");
+        LocalTime horaInici = LocalTime.parse(request.getParameter("horaInici"));
+        LocalTime horaFi = LocalTime.parse(request.getParameter("horaFi"));
+        double preuHora = Double.parseDouble(request.getParameter("preuHora"));
+        String imatge = request.getParameter("imatge");
+        String tipus = request.getParameter("tipus");
+
+        Parking parking = new Parking(municipi, numPlaces, direccio, horaInici, horaFi, preuHora, imatge, tipus);
+
+        int registrosModificados = new ParkingService().insertParking(parking);
+        System.out.println("Registres modificats:" + registrosModificados);
+
+        response.sendRedirect("listParkings.jsp");
     }
 }

@@ -18,6 +18,18 @@ public class Parking {
         this.id = id;
     }
 
+    public Parking(String municipi, int numPlaces, String direccio, LocalTime horaInici, LocalTime horaFi, double preuHora, String imatge, String tipus) {
+        this.municipi = municipi;
+        this.numPlaces = numPlaces;
+        this.direccio = direccio;
+        this.horaInici = horaInici;
+        this.horaFi = horaFi;
+        this.preuHora = preuHora;
+        this.imatge = imatge;
+        this.tipus = tipus;
+    }
+
+
     public Parking(int id, String municipi, int numPlaces, String direccio, LocalTime horaInici, LocalTime horaFi, double preuHora, String imatge, String tipus) {
         this.id = id;
         this.municipi = municipi;

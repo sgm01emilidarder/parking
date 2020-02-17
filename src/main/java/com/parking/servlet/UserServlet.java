@@ -20,16 +20,16 @@ public class UserServlet  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        /*String action = request.getParameter("action");
+        String action = request.getParameter("action");
         if (action != null) {
             switch (action) {
-                case "edit":
-                    UserService.editClient(request, response);
+                case "list":
+                    this.listClient(request, response);
                     break;
-                default:
-                    UserService.showListClient(request, response);
+                /*default:
+                    UserService.showListClient(request, response);*/
             }
-        } else {
+        } /*else {
             UserService.showListClient(request, response);
         }*/
     }
@@ -49,9 +49,6 @@ public class UserServlet  extends HttpServlet {
                 case "update":
                     UserService.updateClient(request, response);
                     break;*/
-                case "list":
-                    this.listClient(request, response);
-                    break;
                 case "create":
                     UserService.createClient(request, response);
                     break;

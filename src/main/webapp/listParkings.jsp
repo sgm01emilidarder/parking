@@ -69,5 +69,5 @@
         </div>
     </div>
 </section>
-
+<%@include file="addParking.jsp" %>
 <%@include file="./common/footer.jsp" %>

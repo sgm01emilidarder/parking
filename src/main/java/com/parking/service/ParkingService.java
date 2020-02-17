@@ -22,5 +22,9 @@ public class ParkingService {
         return new ParkingDao().update(parking);
     }
 
+    public int insertParking(Parking parking){
+        return new ParkingDao().create(parking);
+    }
+
 
 }
