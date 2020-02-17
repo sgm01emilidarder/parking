@@ -48,7 +48,9 @@
                             <td>${usuario.nom}</td>
                             <td>${usuario.llinatges}</td>
                             <td>${usuario.usuari}</td>
-                            <td>${usuario.nom}</td>
+                            <c:forEach var="vehicle" items="${usuario.vehicles}" varStatus="status">
+                                <td>${vehicle.matricula}</td>
+                            </c:forEach>
                             <td>
                                 <a href="${pageContext.request.contextPath}/usuario?action=edit&idUsuario=${usuario.id}"
                                    class="btn btn-secondary">
