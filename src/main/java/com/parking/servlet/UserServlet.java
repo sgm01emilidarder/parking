@@ -1,5 +1,8 @@
 package com.parking.servlet;
 
+import com.parking.dto.Parking;
+import com.parking.dto.Usuario;
+import com.parking.service.ParkingService;
 import com.parking.service.UserService;
 
 import javax.servlet.ServletException;
@@ -7,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/client")
 public class UserServlet  extends HttpServlet {
@@ -44,6 +49,9 @@ public class UserServlet  extends HttpServlet {
                 case "update":
                     UserService.updateClient(request, response);
                     break;*/
+                case "list":
+                    this.listClient(request, response);
+                    break;
                 case "create":
                     UserService.createClient(request, response);
                     break;
@@ -59,6 +67,14 @@ public class UserServlet  extends HttpServlet {
         } else {
             UserService.returnToIndex(request, response);
         }
+    }
+
+    private void listClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Usuario> usuarios = new UserService().getClients();
+
+        HttpSession session = request.getSession();
+        session.setAttribute("usuarios", usuarios);
+
     }
 
 }

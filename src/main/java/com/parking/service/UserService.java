@@ -1,6 +1,8 @@
 package com.parking.service;
 
+import com.parking.dao.ParkingDao;
 import com.parking.dao.UsuarioDao;
+import com.parking.dto.Parking;
 import com.parking.dto.Usuario;
 import com.parking.dto.Vehicle;
 
@@ -66,5 +68,9 @@ public class UserService {
         System.out.println("Registres modificats:" + registrosModificados);
 
         UserService.returnToIndex(request, response);
+    }
+
+    public List<Usuario> getClients(){
+        return new UsuarioDao().listar();
     }
 }

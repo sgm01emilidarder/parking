@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="col-md-4">
-                <a href="<%--${pageContext.request.contextPath}/client?action=list--%>" class="btn btn-secondary btn-block">
+                <a href="${pageContext.request.contextPath}/client?action=list" class="btn btn-secondary btn-block">
                     <i class="fas fa-eye"></i> Ver Clientes
                 </a>
             </div>
