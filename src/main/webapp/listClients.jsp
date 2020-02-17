@@ -6,9 +6,9 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-md-4">
-                <button data-toggle="modal" data-target="#addParkingModal" class="btn btn-secondary btn-block"
+                <button data-toggle="modal" data-target="#addClientModal" class="btn btn-secondary btn-block"
                 >
-                    <i class="fas fa-plus"></i> Agregar Parking
+                    <i class="fas fa-plus"></i> Agregar Cliente
                 </button>
             </div>
             <div class="col-md-4">
@@ -28,7 +28,7 @@
 
             <div class="card" id="productsContent">
                 <div class="card-header">
-                    <h4>Listado de Parkings</h4>
+                    <h4>Listado de Clientes</h4>
                 </div>
                 <table class="table table-striped">
                     <thead class="table-secondary">
