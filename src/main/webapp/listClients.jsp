@@ -52,7 +52,7 @@
                                 <td>${vehicle.matricula}</td>
                             </c:forEach>
                             <td>
-                                <a href="${pageContext.request.contextPath}/usuario?action=edit&idUsuario=${usuario.id}"
+                                <a href="${pageContext.request.contextPath}/client?action=edit&idUsuario=${usuario.id}"
                                    class="btn btn-secondary">
                                     <i class="fas fa-angle-double-right"></i> Editar
                                 </a>
@@ -66,3 +66,6 @@
         </div>
     </div>
 </section>
+
+<%@include file="addClient.jsp" %>
+<%@include file="./common/footer.jsp" %>

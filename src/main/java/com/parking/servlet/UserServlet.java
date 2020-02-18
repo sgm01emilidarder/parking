@@ -42,11 +42,11 @@ public class UserServlet  extends HttpServlet {
             switch (action) {
                 /*case "delete":
                     UserService.deleteClient(request, response);
-                    break;
+                    break;*/
                 case "insert":
                     UserService.insertClient(request, response);
                     break;
-                case "update":
+                /*case "update":
                     UserService.updateClient(request, response);
                     break;*/
                 case "create":
@@ -74,5 +74,7 @@ public class UserServlet  extends HttpServlet {
 
         response.sendRedirect("listClients.jsp");
     }
+
+
 
 }
