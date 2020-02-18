@@ -95,4 +95,13 @@ public class UserService {
     public List<Usuario> getClients(){
         return new UsuarioDao().listar();
     }
+
+    public Usuario getUserById(Usuario usuario){
+        return new UsuarioDao().findById(usuario);
+    }
+
+    public int deleteClient(int usuario){
+        return new UsuarioDao().delete(new Usuario(usuario));
+    }
+
 }
