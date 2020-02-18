@@ -117,7 +117,7 @@ public class UserServlet  extends HttpServlet {
     private void deleteClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int userId = Integer.parseInt(request.getParameter("idUsuario"));
 
-        int registrosModificados = new UserService().deleteClient(userId);
+        int registrosModificados = new UserService().deleteClient(new Usuario(userId));
 
         System.out.println("Registres modificats:" + registrosModificados);
 

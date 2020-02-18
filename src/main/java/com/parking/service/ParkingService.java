@@ -26,5 +26,8 @@ public class ParkingService {
         return new ParkingDao().create(parking);
     }
 
+    public int deleteParking(Parking parking){
+        return new ParkingDao().delete(parking);
+    }
 
 }

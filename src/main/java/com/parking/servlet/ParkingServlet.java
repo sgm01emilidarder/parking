@@ -58,13 +58,12 @@ public class ParkingServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Recuperam l'acció a realitzar i es crida a la funció corresponent
         String action = request.getParameter("action");
         if (action != null) {
             switch (action) {
-               /* case "delete":
-                    this.deleteClient(request, response);
-                    break;*/
+                case "delete":
+                    this.deleteParking(request, response);
+                    break;
                 case "insert":
                     this.insertParking(request, response);
                     break;
@@ -160,6 +159,16 @@ public class ParkingServlet extends HttpServlet {
         int registrosModificados = new ParkingService().insertParking(parking);
         System.out.println("Registres modificats:" + registrosModificados);
 
-        response.sendRedirect("listParkings.jsp");
+        this.showParking(request, response);
+    }
+
+    private void deleteParking(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int parkingId = Integer.parseInt(request.getParameter("idParking"));
+
+        int registrosModificados = new ParkingService().deleteParking(new Parking(parkingId));
+
+        System.out.println("Registres modificats:" + registrosModificados);
+
+        this.showParking(request, response);
     }
 }

@@ -100,8 +100,8 @@ public class UserService {
         return new UsuarioDao().findById(usuario);
     }
 
-    public int deleteClient(int usuario){
-        return new UsuarioDao().delete(new Usuario(usuario));
+    public int deleteClient(Usuario usuario){
+        return new UsuarioDao().delete(usuario);
     }
 
 }
